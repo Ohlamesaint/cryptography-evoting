@@ -23,6 +23,7 @@ public class VoteController {
     public Mono<VoteDto> studentVote(@RequestBody Mono<CryptoDto> cryptoDtoMono){
 //        return this.voteService.insert(voteDtoMono);
         return cryptoDtoMono.map(c -> {
+            System.out.println(c.toString());
             return c;
         }).map(c -> new VoteDto()).doOnError(e -> System.out.println("Error " + e.getMessage()));
     }
