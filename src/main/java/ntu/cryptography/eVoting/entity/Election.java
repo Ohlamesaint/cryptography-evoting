@@ -30,7 +30,6 @@ public class Election {
 
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private List<String> electionItem;  // 選舉項目
 
     public String toString(){
         return ReflectionToStringBuilder.toString(this);

@@ -35,12 +35,10 @@ public class ElectionDto {
     @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime endTime;
-    private List<String> electionItem;  // 選舉項目
 
     public ElectionDto(String id, String name, List<String> electionItem, String startTime, String endTime) {
         this._id = id;
         this.name = name;
-        this.electionItem.addAll(electionItem);
         this.startTime = DateTimeOperator.StringToIsoDate(startTime);
         this.endTime = DateTimeOperator.StringToIsoDate(endTime);
     }
