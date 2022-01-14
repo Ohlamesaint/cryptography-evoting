@@ -34,6 +34,11 @@ public class StudentService {
                 .doAfterTerminate(() -> System.out.println(AnsiColor.ANSI_GREEN+"[Service Layer] out of insert student"+AnsiColor.ANSI_RESET));
     }
 
+    public Mono<StudentDto> getStudentById(String id){
+        return this.studentRepository.findById(id)
+                .map(EntityDtoUtil::toDto);
+    }
+
     public Mono<StudentDto> isStudentExist(String studentId){
         System.out.println(AnsiColor.ANSI_GREEN+"[Service Layer] in isStudentExist"+AnsiColor.ANSI_RESET);
         return this.studentRepository.isStudentExist(studentId)

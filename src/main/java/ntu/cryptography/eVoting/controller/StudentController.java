@@ -45,7 +45,7 @@ public class StudentController {
 
     @GetMapping("get-student-by-id/{studentId}")
     public Mono<StudentDto> getStudentById(@PathVariable String studentId){
-        return this.service.isStudentExist(studentId);
+        return this.service.getStudentById(studentId);
     }
 
 
