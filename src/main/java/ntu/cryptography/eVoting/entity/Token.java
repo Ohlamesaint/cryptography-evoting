@@ -15,7 +15,7 @@ import java.util.Date;
 public class Token {
 
     @Id
-    private String id;
+    private String _id;
 
     private String token;
 

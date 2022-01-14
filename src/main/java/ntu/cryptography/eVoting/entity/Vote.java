@@ -7,11 +7,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 @Data
-@ToString
 public class Vote {
 
     @Id
-    private String id;
+    private String _id;
 
     private int candidateNumber;
 

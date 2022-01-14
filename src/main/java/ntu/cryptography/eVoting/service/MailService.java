@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -38,10 +39,7 @@ public class MailService {
             List<String> toAddress = new ArrayList<>();
             String[] Emails = to;
 
-            for(String email: Emails){
-                toAddress.add(email);
-            }
-            System.out.println("in sendEmail");
+            toAddress.addAll(Arrays.asList(Emails));
             destination.setToAddresses(toAddress);
             SendTemplatedEmailRequest templatedEmailRequest = new SendTemplatedEmailRequest();
             templatedEmailRequest.withDestination(destination);
@@ -49,6 +47,7 @@ public class MailService {
             templatedEmailRequest.withTemplateData(templateData);
             templatedEmailRequest.withSource(from);
             client.sendTemplatedEmail(templatedEmailRequest);
+            System.out.println("in sendEmail");
             return "email send";
         } catch (Exception ex) {
             return ("The email was not sent. Error message: "

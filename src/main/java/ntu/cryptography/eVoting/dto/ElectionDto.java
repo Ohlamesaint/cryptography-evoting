@@ -16,11 +16,10 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 public class ElectionDto {
 
-    private String id;
+    private String _id;
     private String name;
     private String createDate;
     private String lastModifiedDay;
@@ -39,7 +38,7 @@ public class ElectionDto {
     private List<String> electionItem;  // 選舉項目
 
     public ElectionDto(String id, String name, List<String> electionItem, String startTime, String endTime) {
-        this.id = id;
+        this._id = id;
         this.name = name;
         this.electionItem.addAll(electionItem);
         this.startTime = DateTimeOperator.StringToIsoDate(startTime);

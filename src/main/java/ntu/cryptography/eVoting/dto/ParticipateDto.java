@@ -8,11 +8,10 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 public class ParticipateDto {
 
-    private String id;
+    private String _id;
     private String politics;
     private int candidateNumber;
     private long result = 0;
@@ -26,14 +25,6 @@ public class ParticipateDto {
         this.candidateNumber = candidateNumber;
         this.studentId = studentId;
         this.electionId = electionId;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getPolitics() {

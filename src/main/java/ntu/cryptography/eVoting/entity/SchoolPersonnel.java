@@ -13,7 +13,7 @@ import java.util.List;
 public class SchoolPersonnel {
 
     @Id
-    private String id;
+    private String _id;
     private String username;
     private String password;
     private boolean enabled;

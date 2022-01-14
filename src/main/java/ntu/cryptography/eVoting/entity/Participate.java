@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Id;
 public class Participate {
 
     @Id
-    private String id;
+    private String _id;
     private String politics;
     private int candidateNumber;
     private long result;

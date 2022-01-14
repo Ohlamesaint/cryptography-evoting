@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class SchoolPersonnelDto implements UserDetails {
 
-    private String id;
+    private String _id;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;

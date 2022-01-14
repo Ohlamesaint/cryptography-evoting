@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Id;
 public class Student {
 
     @Id
-    private String id;
+    private String _id;
     private Gender gender;
     private int grade;
     private String department;

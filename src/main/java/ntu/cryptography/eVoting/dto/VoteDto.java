@@ -11,7 +11,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 @AllArgsConstructor
 public class VoteDto {
 
-    private String id;
+    private String _id;
     private int candidateNumber;
     private String electionId;
 

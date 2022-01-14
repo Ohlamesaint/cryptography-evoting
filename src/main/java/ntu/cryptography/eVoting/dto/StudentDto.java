@@ -9,7 +9,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 @NoArgsConstructor
 public class StudentDto {
 
-    private String id;
+    private String _id;
     private Gender gender;
     private int grade;
     private String department;

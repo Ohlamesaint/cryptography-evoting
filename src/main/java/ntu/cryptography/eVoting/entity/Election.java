@@ -12,11 +12,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-@ToString
 public class Election {
 
     @Id
-    private String Id;
+    private String _id;
     private String name;
 
     @CreatedDate
