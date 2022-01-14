@@ -43,6 +43,11 @@ public class StudentController {
                 .doFinally(s -> System.out.println(AnsiColor.ANSI_RED+"[Controller Layer] out of insert student"+ANSI_RESET));
     }
 
+    @GetMapping("get-student-by-id/{studentId}")
+    public Mono<StudentDto> getStudentById(@PathVariable String studentId){
+        return this.service.isStudentExist(studentId);
+    }
+
 
     // TODO send email functionality
     @PostMapping("student-generate-token-get-mail/{electionId}")
