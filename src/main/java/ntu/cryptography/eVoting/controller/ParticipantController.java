@@ -3,9 +3,12 @@ package ntu.cryptography.eVoting.controller;
 
 import ntu.cryptography.eVoting.dto.ParticipateDto;
 import ntu.cryptography.eVoting.service.ParticipantService;
+import ntu.cryptography.eVoting.util.AnsiColor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
+
+import static ntu.cryptography.eVoting.util.AnsiColor.ANSI_RESET;
 
 @RestController
 @RequestMapping("participant")
@@ -16,6 +19,8 @@ public class ParticipantController {
 
     @GetMapping
     public Flux<ParticipateDto> getParticipantByElectionId(@RequestParam(name = "electionId") String electionId){
+        System.out.println(AnsiColor.ANSI_RED+"[Controller Layer] in getParticipantByElectionId"+ANSI_RESET);
+        System.out.println(electionId);
         return this.participantService.getParticipateByElectionId(electionId);
     }
 

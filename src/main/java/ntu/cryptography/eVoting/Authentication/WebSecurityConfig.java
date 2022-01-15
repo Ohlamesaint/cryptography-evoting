@@ -38,6 +38,7 @@ public class WebSecurityConfig {
                 .pathMatchers("/v3/api-docs/**", "/swagger-ui.html", "/webjars/swagger-ui/**").permitAll()
                 .pathMatchers("/schoolPersonnel/**", "/student/student-generate-token-get-mail").permitAll()
                 .pathMatchers("/token/test-mail").permitAll()
+                .pathMatchers("/election/**", "/participant/**", "/token/**", "/vote/**").permitAll()
                 .anyExchange().authenticated()
                 .and().build();
     }
