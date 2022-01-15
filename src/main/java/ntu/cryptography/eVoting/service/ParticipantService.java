@@ -21,7 +21,9 @@ public class ParticipantService {
     public Flux<ParticipateDto> insertParticipateWithElectionId(String electionId, Flux<ParticipateDto> participateDtoFlux){
         return participateDtoFlux
                 .map(participateDto -> {
+                    System.out.println(electionId);
                     participateDto.setElectionId(electionId);
+                    System.out.println(participateDto.toString());
                     return participateDto;
                 })
                 .map(EntityDtoUtil::toEntity)

@@ -20,7 +20,7 @@ public class Token {
     private String token;
 
     @Field
-    @Indexed(name="createAtIndex", expireAfterSeconds = 10)
+    @Indexed(name="createAtIndex", expireAfterSeconds = 1800)
     private Date createAt;
 
     public void populateCreateAt(){

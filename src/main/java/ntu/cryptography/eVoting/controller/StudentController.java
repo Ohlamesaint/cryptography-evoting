@@ -9,6 +9,8 @@ import ntu.cryptography.eVoting.util.AnsiColor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.util.BsonUtils;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -26,6 +28,8 @@ public class StudentController {
     private TokenService tokenService;
     @Autowired
     private MailService mailService;
+    @Autowired
+    private JavaMailSender mailSender;
 
     @GetMapping
     @PreAuthorize("hasRole('USER')")
@@ -66,4 +70,16 @@ public class StudentController {
                 .switchIfEmpty(Mono.just(ResponseEntity.badRequest().build()))
                 .doFinally(s -> System.out.println(AnsiColor.ANSI_RED+"[Controller Layer] out of student-generate-token-get-mail"+ANSI_RESET));
     }
+
+    @GetMapping("mail")
+    public void sendSimpleMail() {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("r10922120@ntu.edu.tw");
+        message.setTo("r10922120@ntu.edu.tw");
+        message.setSubject("TEST");
+        message.setText("test");
+        mailSender.send(message);
+    }
 }
+
+
