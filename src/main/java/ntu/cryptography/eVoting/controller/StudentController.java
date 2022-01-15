@@ -8,7 +8,6 @@ import ntu.cryptography.eVoting.service.TokenService;
 import ntu.cryptography.eVoting.util.AnsiColor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -26,8 +25,6 @@ public class StudentController {
     private TokenService tokenService;
     @Autowired
     private MailService mailService;
-    @Autowired
-    private JavaMailSender mailSender;
 
     @GetMapping
     @PreAuthorize("hasRole('USER')")
