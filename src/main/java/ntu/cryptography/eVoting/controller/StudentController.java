@@ -71,8 +71,8 @@ public class StudentController {
                                 } catch (MessagingException messagingException) {
                                     messagingException.printStackTrace();
                                 }
-                                return null;
-                            }).thenReturn(3);
+                                return Mono.empty();
+                            }).thenReturn(Mono.empty());
                 })
                 .map(m -> ResponseEntity.ok().build())
                 .switchIfEmpty(Mono.just(ResponseEntity.badRequest().build()))
