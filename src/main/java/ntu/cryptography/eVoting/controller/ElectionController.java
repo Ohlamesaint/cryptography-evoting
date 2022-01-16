@@ -7,10 +7,7 @@ import ntu.cryptography.eVoting.service.ParticipantService;
 import ntu.cryptography.eVoting.service.VoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -28,6 +25,11 @@ public class ElectionController {
     @GetMapping
     public Flux<ElectionDto> getAll(){
         return this.service.getAll();
+    }
+
+    @GetMapping("get-election-by-id/{electionId}")
+    public Mono<ElectionDto> getById(@PathVariable String electionId) {
+        return this.service.getElectionById(electionId);
     }
 
     @GetMapping("not-start-yet")
