@@ -30,6 +30,7 @@ public class MailService {
         MimeMessage message = sender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message,true);
         try {
+            studentId = studentId.toLowerCase();
             helper.setTo(studentId + "@ntu.edu.tw");
             helper.setText("<html><p>同學您好，請點選下方連結以進行投票</p>" +
                     "<a href=https://r10942055.wixsite.com/my-site/student-voting?electionId="+electionId+"&token="+token+">投票連結</html>", true);
