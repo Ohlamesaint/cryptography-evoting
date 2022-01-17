@@ -49,6 +49,7 @@ public class ElectionController {
     public Flux<ParticipateDto> getResult(@RequestParam("electionId") String electionId){
         return this.participantService.getParticipateByElectionId(electionId)
                 .flatMap(p -> {
+                    System.out.println(p.toString());
                     return this.voteService.getVoteAmountOfElectionAndCandidate(electionId, p.getCandidateNumber())
                             .handle((i, synchronousSink) -> {
                                 System.out.println(i);

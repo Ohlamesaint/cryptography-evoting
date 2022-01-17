@@ -20,4 +20,12 @@ public class CustomStudentRepositoryImpl implements CustomStudentRepository{
         return reactiveMongoTemplate
                 .findOne(query, Student.class);
     }
+
+    @Override
+    public Mono<Student> getByStudentId(String studentId){
+        Query query = new Query(Criteria.where("studentId").is(studentId));
+
+        return reactiveMongoTemplate
+                .findOne(query, Student.class);
+    }
 }
